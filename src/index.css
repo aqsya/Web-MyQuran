@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+/* Beritahu Tailwind v4 untuk menggunakan class .dark (bukan media query) */
+@variant dark (&:where(.dark, .dark *));
+
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+
+@theme {
+  --font-arabic: "Amiri", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+/* Memaksa browser dan Tailwind v4 mengenali skema warna */
+html {
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-500;
+}
+
+.font-arabic {
+  direction: rtl;
+  line-height: 2.5;
+}
