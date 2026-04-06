@@ -1,20 +1,36 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import { BookmarkContext } from '../contexts/BookmarkContext';
 
 const Ayat = ({ ayat, surahNumber }) => {
     const { bookmarks, toggleBookmark } = useContext(BookmarkContext);
     const [isPlaying, setIsPlaying] = useState(false);
+    const audioRef = useRef(null);
 
     const isBookmarked = bookmarks.find(
         (b) => b.nomorAyat === ayat.nomorAyat && b.surahNomor === parseInt(surahNumber)
     );
 
-    const handlePlay = (url) => {
-        const audio = new Audio(url);
-        setIsPlaying(true);
-        audio.play();
-        audio.onended = () => setIsPlaying(false);
-        audio.onerror = () => setIsPlaying(false);
+    useEffect(() => {
+        return () => {
+            if (audioRef.current) {
+                audioRef.current.pause();
+            }
+        };
+    }, []);
+
+    const handleTogglePlay = (url) => {
+        if (isPlaying) {
+            audioRef.current.pause();
+            setIsPlaying(false);
+        } else {
+            if (!audioRef.current) {
+                audioRef.current = new Audio(url);
+                audioRef.current.onended = () => setIsPlaying(false);
+                audioRef.current.onerror = () => setIsPlaying(false);
+            }
+            audioRef.current.play();
+            setIsPlaying(true);
+        }
     };
 
     return (
@@ -25,7 +41,7 @@ const Ayat = ({ ayat, surahNumber }) => {
                         {ayat.nomorAyat}
                     </div>
                     <button
-                        onClick={() => handlePlay(ayat.audio['01'])}
+                        onClick={() => handleTogglePlay(ayat.audio['01'])}
                         className={`p-2 rounded-full transition-colors ${isPlaying ? 'bg-emerald-100 text-emerald-600' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-emerald-50 hover:text-emerald-600'}`}
                     >
                         {isPlaying ? '⏸️' : '▶️'}
