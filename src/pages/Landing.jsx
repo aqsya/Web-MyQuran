@@ -56,12 +56,7 @@ const Landing = () => {
                     >
                         Mulai Membaca
                     </MotionLink>
-                    <MotionLink variants={itemVariants}
-                        to="/bookmarks"
-                        className="px-8 py-4 bg-white dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 font-bold rounded-2xl border border-emerald-100 dark:border-slate-700 hover:bg-emerald-50 dark:hover:bg-slate-700 transition-all text-center"
-                    >
-                        Lihat Bookmark
-                    </MotionLink>
+                    
                 </div>
             </motion.div>
         </div>

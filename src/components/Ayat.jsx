@@ -1,14 +1,8 @@
-import React, { useContext, useState, useEffect, useRef } from 'react';
-import { BookmarkContext } from '../contexts/BookmarkContext';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Ayat = ({ ayat, surahNumber }) => {
-    const { bookmarks, toggleBookmark } = useContext(BookmarkContext);
     const [isPlaying, setIsPlaying] = useState(false);
     const audioRef = useRef(null);
-
-    const isBookmarked = bookmarks.find(
-        (b) => b.nomorAyat === ayat.nomorAyat && b.surahNomor === parseInt(surahNumber)
-    );
 
     useEffect(() => {
         return () => {
@@ -45,12 +39,6 @@ const Ayat = ({ ayat, surahNumber }) => {
                         className={`p-2 rounded-full transition-colors ${isPlaying ? 'bg-emerald-100 text-emerald-600' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-emerald-50 hover:text-emerald-600'}`}
                     >
                         {isPlaying ? '⏸️' : '▶️'}
-                    </button>
-                    <button
-                        onClick={() => toggleBookmark({ ...ayat, surahNomor: parseInt(surahNumber) })}
-                        className={`p-2 rounded-full transition-colors ${isBookmarked ? 'text-amber-500' : 'text-slate-400 hover:text-amber-500'}`}
-                    >
-                        {isBookmarked ? '⭐' : '☆'}
                     </button>
                 </div>
             </div>

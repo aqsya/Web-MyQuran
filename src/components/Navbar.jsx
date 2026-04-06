@@ -34,9 +34,6 @@ const Navbar = ({ setSearchTerm }) => {
                     <Link to="/surah" className="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors font-medium">
                         Daftar Surah
                     </Link>
-                    <Link to="/bookmarks" className="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors">
-                        ⭐ <span className="hidden sm:inline">Bookmarks</span>
-                    </Link>
                     <button
                         onClick={() => setDarkMode(!darkMode)}
                         className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-xl hover:rotate-12 transition-all"

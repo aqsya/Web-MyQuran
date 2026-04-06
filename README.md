@@ -14,7 +14,6 @@ Website Al-Qur'an digital modern dengan desain yang clean, elegant, dan islami m
 - **Header Surah**: Nama arab & latin, arti, jumlah ayat
 - **Ayat Lengkap**: Teks arab dengan font islami, terjemahan Indonesia
 - **Audio Player**: Tombol play untuk setiap ayat (jika tersedia)
-- **Bookmark**: Simpan ayat favorit dengan localStorage
 - **Scroll Smooth**: Pengalaman baca yang nyaman
 
 ### 🔍 Fitur Search
@@ -26,11 +25,6 @@ Website Al-Qur'an digital modern dengan desain yang clean, elegant, dan islami m
 - **Toggle Theme**: Saklar antara mode terang dan gelap
 - **Persistent**: Pengaturan tersimpan di localStorage
 - **Smooth Transition**: Transisi yang halus
-
-### ⭐ Bookmark System
-- **Simpan Ayat**: Bookmark ayat favorit
-- **Halaman Khusus**: Lihat semua bookmark di satu tempat
-- **Local Storage**: Data tersimpan di browser
 
 ### 🎨 UI/UX Modern
 - **Tailwind CSS**: Styling modern dan minimalis
@@ -44,8 +38,8 @@ Website Al-Qur'an digital modern dengan desain yang clean, elegant, dan islami m
 - **React 19**: Functional components & hooks
 - **React Router**: Navigasi antar halaman
 - **Tailwind CSS v4**: Utility-first CSS framework
-- **Context API**: State management untuk theme & bookmarks
-- **Local Storage**: Persistent data untuk bookmarks & theme
+- **Context API**: State management untuk theme
+- **Local Storage**: Persistent data untuk theme
 - **Vite**: Build tool modern & cepat
 
 ## 📁 Struktur Project
@@ -58,12 +52,10 @@ src/
 │   ├── Ayat.jsx         # Komponen untuk setiap ayat
 │   └── LoadingSkeleton.jsx # Placeholder loading
 ├── contexts/            # React Context untuk state global
-│   ├── ThemeContext.jsx # Dark mode management
-│   └── BookmarkContext.jsx # Bookmark management
+│   └── ThemeContext.jsx # Dark mode management
 ├── pages/               # Halaman utama
 │   ├── Home.jsx         # Halaman daftar surah
-│   ├── SurahDetail.jsx  # Halaman detail surah
-│   └── Bookmarks.jsx    # Halaman bookmark
+│   └── SurahDetail.jsx  # Halaman detail surah
 ├── services/            # API calls
 │   └── api.js           # Fetch functions untuk equran.id API
 ├── App.jsx              # Main app dengan routing
