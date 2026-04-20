@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ThemeContext } from '../contexts/ThemeContext';
 
-const Navbar = ({ setSearchTerm }) => {
+const Navbar = ({ setSearchTerm = () => {} }) => {
     const { darkMode, setDarkMode } = useContext(ThemeContext);
     const location = useLocation();
     const isSurahListPage = location.pathname === '/surah';
@@ -14,7 +14,7 @@ const Navbar = ({ setSearchTerm }) => {
                     <div className="w-10 h-10 bg-emerald-600 rounded-lg flex items-center justify-center shadow-lg shadow-emerald-200 dark:shadow-none">
                         <span className="text-white text-2xl font-bold">Q</span>
                     </div>
-                    <h1 className="text-xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent dark:from-emerald-400 dark:to-emerald-200">
+                    <h1 className="text-xl font-bold bg-gradient-to-r from-emerald-600 to-emerald-800 bg-clip-text text-transparent dark:from-emerald-400 dark:to-emerald-200 hover:opacity-80 transition-opacity">
                         MyQuran
                     </h1>
                 </Link>
@@ -34,12 +34,15 @@ const Navbar = ({ setSearchTerm }) => {
                     <Link to="/surah" className="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors font-medium">
                         Daftar Surah
                     </Link>
+                    <Link to="/profile" className="text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition-colors font-medium">
+                        Profil
+                    </Link>
                     <button
                         onClick={() => setDarkMode(!darkMode)}
                         className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-xl hover:rotate-12 transition-all"
-                        title={darkMode ? "Aktifkan Mode Terang" : "Aktifkan Mode Gelap"}
+                        title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
                     >
-                        {darkMode ? '☀️' : '🌙'}
+                        {darkMode ? '🌙' : '☀️'}
                     </button>
                 </div>
             </div>

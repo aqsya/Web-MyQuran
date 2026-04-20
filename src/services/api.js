@@ -41,3 +41,15 @@ export const getSurahDetail = async (nomor) => {
         throw error;
     }
 };
+
+
+export const searchSurah = async (keyword) => {
+    try {
+        const response = await fetch(`${BASE_URL}/search/${keyword}`);
+        const data = await response.json();
+        return data.data;
+    } catch (error) {
+        console.error("Error searching surah:", error);
+        return [];
+    }
+};

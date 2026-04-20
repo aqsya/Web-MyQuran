@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import SurahDetail from './pages/SurahDetail';
 import Landing from './pages/Landing';
+import Profile from './pages/Profile';
 
 function App() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -19,6 +20,7 @@ function App() {
               <Route path="/" element={<Landing />} />
               <Route path="/surah" element={<Home searchTerm={searchTerm} />} />
               <Route path="/surah/:nomor" element={<SurahDetail />} />
+              <Route path="/profile" element={<Profile />} />
             </Routes>
           </main>
         </div>

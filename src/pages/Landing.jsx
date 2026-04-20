@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 // Membuat komponen Link yang mendukung animasi Framer Motion
-const MotionLink = motion(Link);
+const MotionLink = motion(Link);  
 
-const Landing = () => {
+const Landing = () => { 
     const containerVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: {
@@ -35,9 +35,6 @@ const Landing = () => {
                 initial="hidden"
                 animate="visible"
             >
-                <motion.div variants={itemVariants} className="mb-8 inline-block p-4 rounded-full bg-emerald-50 dark:bg-emerald-900/20">
-                    <span className="text-6xl">📖</span>
-                </motion.div>
 
                 <motion.h1 variants={itemVariants} className="text-4xl md:text-5xl font-bold text-slate-800 dark:text-white mb-6 leading-tight">
                     Sudahkah Anda Membaca <br />
